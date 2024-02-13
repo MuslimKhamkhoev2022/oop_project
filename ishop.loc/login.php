@@ -12,15 +12,14 @@ if (Input::exists()) {
         ]);
 
         if ($validate->passed()) {
-
             $user = new User;
             $login = $user->login(Input::get('email'), Input::get('password'));
-            if ($login) {
+            if ($login){
                 echo 'login successful';
-            } else {
+            }else{
                 echo 'login failed';
             }
-        } else {
+        }else {
             foreach ($validate->errors() as $error) {
                 echo $error . '<br>';
             }
